@@ -1,9 +1,10 @@
 import Feather from "@expo/vector-icons/Feather";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 
-import Header from "@/components/header";
-
-import colors from "@/constants/colors";
+import BottomActionButtons from "@/components/BottomActionButtons";
+import Header from "@/components/Header";
+import { Colors } from "@/constants/theme";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
 const MainPage = () => {
@@ -21,7 +22,16 @@ const MainPage = () => {
             <Text style={[styles.settingsText]}>პარამეტრები</Text>
           </Pressable>
         </View>
+        <View style={[styles.startRecording]}>
+          <MaterialCommunityIcons
+            name="microphone"
+            size={28}
+            color={Colors.light.primary_blue_color}
+          />
+          <Text style={[styles.startRecordingText]}>დაიწყე ჩაწერა...</Text>
+        </View>
       </View>
+      <BottomActionButtons />
     </>
   );
 };
@@ -43,7 +53,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     gap: 8,
 
-    backgroundColor: colors.primary_blue_color,
+    backgroundColor: Colors.light.primary_blue_color,
     paddingVertical: 8,
     paddingHorizontal: 16,
     borderRadius: 12,
@@ -69,6 +79,17 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: "600",
     color: "#23557D",
+  },
+
+  startRecording: {
+    flexDirection: "row",
+    gap: 4,
+
+    marginTop: 24,
+  },
+
+  startRecordingText: {
+    fontSize: 16,
   },
 });
 

@@ -40,11 +40,13 @@ const styles = StyleSheet.create({
   burgerMenuIcon: { width: 32, height: 4, backgroundColor: "black" },
 
   containerBorderBottom: {
-    width: "100%",
+    width: "auto",
     height: 1,
 
     position: "absolute",
     bottom: 0,
+    left: -20,
+    right: -20,
 
     backgroundColor: "black",
   },
