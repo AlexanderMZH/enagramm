@@ -2,18 +2,32 @@ import Feather from "@expo/vector-icons/Feather";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 
-import BottomActionButtons from "@/components/BottomActionButtons";
+import AnimatedRecording from "@/components/AnimatedRecording";
 import Header from "@/components/Header";
+
+import BottomActionButtons from "@/components/BottomActionButtons";
+
+import AudioPlayer from "@/components/AudioPlayer";
 import { Colors } from "@/constants/theme";
+import { useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
 const MainPage = () => {
+  const [isRecording, setIsRecording] = useState(false);
+  const [isRecorded, setIsRecorded] = useState(false);
+
   return (
     <>
       <Header />
       <View style={[styles.container]}>
         <View style={[styles.settingContainer]}>
-          <Pressable style={[styles.openNew]} onPress={() => null}>
+          <Pressable
+            style={[styles.openNew]}
+            onPress={() => {
+              setIsRecorded(false);
+              setIsRecording(false);
+            }}
+          >
             <FontAwesome6 name="plus" size={14} color="#fff" />
             <Text style={[styles.openNewText]}>ახლის გახსნა</Text>
           </Pressable>
@@ -22,16 +36,29 @@ const MainPage = () => {
             <Text style={[styles.settingsText]}>პარამეტრები</Text>
           </Pressable>
         </View>
-        <View style={[styles.startRecording]}>
-          <MaterialCommunityIcons
-            name="microphone"
-            size={28}
-            color={Colors.light.primary_blue_color}
+        {isRecording || isRecorded ? (
+          <AnimatedRecording
+            isRecorded={isRecorded}
+            isRecording={isRecording}
           />
-          <Text style={[styles.startRecordingText]}>დაიწყე ჩაწერა...</Text>
-        </View>
+        ) : (
+          <View style={[styles.startRecording]}>
+            <MaterialCommunityIcons
+              name="microphone"
+              size={28}
+              color={Colors.light.primary_blue_color}
+            />
+            <Text style={[styles.startRecordingText]}>დაიწყე ჩაწერა...</Text>
+          </View>
+        )}
       </View>
-      <BottomActionButtons />
+      {isRecorded && <AudioPlayer />}
+      <BottomActionButtons
+        isRecording={isRecording}
+        isRecordingToggle={() => setIsRecording(!isRecording)}
+        isRecorded={isRecorded}
+        isRecordedToggle={() => setIsRecorded(!isRecorded)}
+      />
     </>
   );
 };
@@ -40,7 +67,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
 
-    backgroundColor: "#fff",
+    backgroundColor: Colors.light.app_bg_color,
   },
   settingContainer: {
     marginTop: 8,
@@ -90,6 +117,16 @@ const styles = StyleSheet.create({
 
   startRecordingText: {
     fontSize: 16,
+  },
+  scrollContainer: {
+    flex: 1,
+  },
+  scrollContent: {
+    paddingVertical: 20,
+  },
+  hugeText: {
+    fontSize: 12,
+    lineHeight: 18,
   },
 });
 

@@ -1,3 +1,4 @@
+import { Colors } from "@/constants/theme";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 
 import { StyleSheet, Text, View } from "react-native";
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
 
     paddingBottom: 16,
-    backgroundColor: "#fff",
+    backgroundColor: Colors.light.app_bg_color,
   },
   audioSwitcher: { flexDirection: "row", alignItems: "center", gap: 4 },
   audioSwitcherText: { fontSize: 16, fontWeight: 700 },
