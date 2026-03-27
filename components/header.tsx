@@ -1,14 +1,15 @@
-import { Colors } from "@/constants/theme";
-import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import { app_bg_color } from "@/constants/theme";
 
 import { StyleSheet, Text, View } from "react-native";
+
+import SwitcherIcon from "@/assets/customIcons/SwitcherIcon";
 
 const Header = () => {
   return (
     <View style={[styles.container]}>
       <View style={[styles.audioSwitcher]}>
         <Text style={[styles.audioSwitcherText]}>ხმა</Text>
-        <MaterialIcons name="compare-arrows" size={24} color="black" />
+        <SwitcherIcon />
         <Text style={[styles.audioSwitcherText]}>ტექსტი</Text>
       </View>
 
@@ -25,6 +26,9 @@ const Header = () => {
 
 const styles = StyleSheet.create({
   container: {
+    paddingTop: 32,
+    paddingHorizontal: 12,
+
     position: "relative",
 
     flexDirection: "row",
@@ -32,7 +36,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
 
     paddingBottom: 16,
-    backgroundColor: Colors.light.app_bg_color,
+    backgroundColor: app_bg_color,
   },
   audioSwitcher: { flexDirection: "row", alignItems: "center", gap: 4 },
   audioSwitcherText: { fontSize: 16, fontWeight: 700 },

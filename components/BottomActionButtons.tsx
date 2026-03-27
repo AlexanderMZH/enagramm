@@ -1,7 +1,8 @@
-import { Colors } from "@/constants/theme";
+import { app_bg_color, primary_blue_color } from "@/constants/theme";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
+import { router } from "expo-router";
 
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
@@ -30,7 +31,10 @@ const BottomActionButtons = ({
 
   return (
     <View style={[styles.container]}>
-      <Pressable style={[styles.actionButtonContainer]}>
+      <Pressable
+        style={[styles.actionButtonContainer]}
+        onPress={() => router.push("/history")}
+      >
         <AntDesign name="file-add" size={40} color="#767676" />
         <Text style={[styles.buttonLabels]}>აუდიო ფაილი</Text>
       </Pressable>
@@ -65,7 +69,9 @@ const BottomActionButtons = ({
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: Colors.light.app_bg_color,
+    paddingHorizontal: 12,
+    paddingBottom: 40,
+    backgroundColor: app_bg_color,
 
     flexDirection: "row",
     justifyContent: "space-around",
@@ -82,7 +88,7 @@ const styles = StyleSheet.create({
     padding: 18,
     borderRadius: 16,
 
-    backgroundColor: Colors.light.primary_blue_color,
+    backgroundColor: primary_blue_color,
   },
 
   stopIconOuter: {

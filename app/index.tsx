@@ -8,7 +8,7 @@ import Header from "@/components/Header";
 import BottomActionButtons from "@/components/BottomActionButtons";
 
 import AudioPlayer from "@/components/AudioPlayer";
-import { Colors } from "@/constants/theme";
+import { app_bg_color, primary_blue_color } from "@/constants/theme";
 import { useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
@@ -46,7 +46,7 @@ const MainPage = () => {
             <MaterialCommunityIcons
               name="microphone"
               size={28}
-              color={Colors.light.primary_blue_color}
+              color={primary_blue_color}
             />
             <Text style={[styles.startRecordingText]}>დაიწყე ჩაწერა...</Text>
           </View>
@@ -65,9 +65,11 @@ const MainPage = () => {
 
 const styles = StyleSheet.create({
   container: {
+    paddingHorizontal: 12,
+
     flex: 1,
 
-    backgroundColor: Colors.light.app_bg_color,
+    backgroundColor: app_bg_color,
   },
   settingContainer: {
     marginTop: 8,
@@ -80,7 +82,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     gap: 8,
 
-    backgroundColor: Colors.light.primary_blue_color,
+    backgroundColor: primary_blue_color,
     paddingVertical: 8,
     paddingHorizontal: 16,
     borderRadius: 12,

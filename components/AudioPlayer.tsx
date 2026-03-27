@@ -1,4 +1,4 @@
-import { Colors } from "@/constants/theme";
+import { app_bg_color, primary_blue_color } from "@/constants/theme";
 import { Ionicons } from "@expo/vector-icons";
 import Slider from "@react-native-community/slider";
 import React from "react";
@@ -17,9 +17,9 @@ const AudioPlayer = () => {
           style={styles.slider}
           minimumValue={0}
           maximumValue={1}
-          minimumTrackTintColor={Colors.light.primary_blue_color}
+          minimumTrackTintColor={primary_blue_color}
           maximumTrackTintColor="#D9D9D9"
-          thumbTintColor={Colors.light.primary_blue_color}
+          thumbTintColor={primary_blue_color}
         />
         <Text style={styles.timeText}>00:00</Text>
       </View>
@@ -29,14 +29,15 @@ const AudioPlayer = () => {
 
 const styles = StyleSheet.create({
   container: {
+    paddingLeft: 20,
     flexDirection: "row",
     alignItems: "center",
     gap: 8,
 
-    backgroundColor: Colors.light.app_bg_color,
+    backgroundColor: app_bg_color,
   },
   playButton: {
-    backgroundColor: Colors.light.primary_blue_color,
+    backgroundColor: primary_blue_color,
     padding: 8,
     borderRadius: 20,
     justifyContent: "center",
