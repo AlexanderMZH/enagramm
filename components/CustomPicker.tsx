@@ -36,6 +36,7 @@ const CustomPicker = ({
       <TouchableOpacity
         style={[
           styles.header,
+          isOpen && styles.headerBorder,
           {
             borderColor: isOpen ? primary_blue_color : "#434343",
           },
@@ -52,7 +53,7 @@ const CustomPicker = ({
       </TouchableOpacity>
 
       {isOpen && (
-        <View style={styles.dropdown}>
+        <View style={[styles.dropdown, isOpen && styles.dropdownBorder]}>
           <ScrollView bounces={false} nestedScrollEnabled={true}>
             {options
               .filter((item) => item.value !== value.value) // to hide selected item
@@ -100,7 +101,7 @@ const styles = StyleSheet.create({
   },
   dropdown: {
     position: "absolute",
-    top: 52,
+    top: 48,
     left: 0,
     right: 0,
     backgroundColor: "#fff",
@@ -108,6 +109,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#434343",
     maxHeight: 200,
+    borderTopWidth: 0,
 
     zIndex: 2,
   },
@@ -122,6 +124,15 @@ const styles = StyleSheet.create({
   },
   optionText: {
     fontSize: 13,
+  },
+
+  headerBorder: {
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
+  },
+  dropdownBorder: {
+    borderTopLeftRadius: 0,
+    borderTopRightRadius: 0,
   },
 
   selectedOption: {},
