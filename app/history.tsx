@@ -10,11 +10,21 @@ import GeoFlag from "@/assets/customIcons/GeoFlag";
 import TrashIcon from "@/assets/customIcons/TrashIcon";
 import { historyData } from "@/constants/historyData";
 
+interface HistoryEntry {
+  id: string;
+  recordedText: string;
+}
+
+interface HistoryGroup {
+  date: string;
+  data: HistoryEntry[];
+}
+
 const HistoryPage = () => {
-  const renderHistoryCards = ({ item }: { item: any }) => (
+  const renderHistoryCards = ({ item }: { item: HistoryGroup }) => (
     <View>
       <Text style={[styles.cardDate]}>{item.date}</Text>
-      {item.data.map((card: any) => (
+      {item.data.map((card: HistoryEntry) => (
         <View key={card.id} style={[styles.singleCard]}>
           <EditIcon />
 

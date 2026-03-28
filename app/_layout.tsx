@@ -8,9 +8,6 @@ export default function RootLayout() {
     <View
       style={{
         flex: 1,
-        // padding: 12,
-
-        // marginVertical: 28,
       }}
     >
       <StatusBar style="auto" />

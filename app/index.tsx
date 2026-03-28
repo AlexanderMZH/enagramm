@@ -1,20 +1,24 @@
+import * as NavigationBar from "expo-navigation-bar";
+import { useState } from "react";
+
 import Feather from "@expo/vector-icons/Feather";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 
 import AnimatedRecording from "@/components/AnimatedRecording";
+import BottomActionButtons from "@/components/BottomActionButtons";
 import Header from "@/components/Header";
 
-import BottomActionButtons from "@/components/BottomActionButtons";
-
 import AudioPlayer from "@/components/AudioPlayer";
+import SettingsModal from "@/components/SettingModal";
 import { app_bg_color, primary_blue_color } from "@/constants/theme";
-import { useState } from "react";
+
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
 const MainPage = () => {
   const [isRecording, setIsRecording] = useState(false);
   const [isRecorded, setIsRecorded] = useState(false);
+  const [settingModal, setSettingModal] = useState(false);
 
   return (
     <>
@@ -31,7 +35,13 @@ const MainPage = () => {
             <FontAwesome6 name="plus" size={14} color="#fff" />
             <Text style={[styles.openNewText]}>ახლის გახსნა</Text>
           </Pressable>
-          <Pressable onPress={() => null} style={[styles.settings]}>
+          <Pressable
+            onPress={() => {
+              setSettingModal(true);
+              NavigationBar.setVisibilityAsync("hidden");
+            }}
+            style={[styles.settings]}
+          >
             <Feather name="settings" size={16} color="#23557D" />
             <Text style={[styles.settingsText]}>პარამეტრები</Text>
           </Pressable>
@@ -58,6 +68,11 @@ const MainPage = () => {
         isRecordingToggle={() => setIsRecording(!isRecording)}
         isRecorded={isRecorded}
         isRecordedToggle={() => setIsRecorded(!isRecorded)}
+      />
+
+      <SettingsModal
+        onClose={() => setSettingModal(!settingModal)}
+        isVisible={settingModal}
       />
     </>
   );
