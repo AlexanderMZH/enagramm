@@ -98,6 +98,7 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontSize: 13,
+    color: "black",
   },
   dropdown: {
     position: "absolute",
@@ -124,6 +125,7 @@ const styles = StyleSheet.create({
   },
   optionText: {
     fontSize: 13,
+    color: "black",
   },
 
   headerBorder: {

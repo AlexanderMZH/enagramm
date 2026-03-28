@@ -134,6 +134,7 @@ const styles = StyleSheet.create({
 
   startRecordingText: {
     fontSize: 16,
+    color: "black",
   },
   scrollContainer: {
     flex: 1,

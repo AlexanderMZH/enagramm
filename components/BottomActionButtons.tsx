@@ -111,6 +111,7 @@ const styles = StyleSheet.create({
   buttonLabels: {
     marginTop: 8,
     fontSize: 12,
+    color: "black",
   },
 });
 

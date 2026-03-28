@@ -45,7 +45,7 @@ const AnimatedRecording = ({
 
 const styles = StyleSheet.create({
   container: { paddingVertical: 20 },
-  text: { fontSize: 12, lineHeight: 18 },
+  text: { fontSize: 12, lineHeight: 18, color: "black" },
 });
 
 export default AnimatedRecording;

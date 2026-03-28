@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     backgroundColor: "#fff",
   },
-  headerText: { fontSize: 13 },
+  headerText: { fontSize: 13, color: "black" },
   dropdown: {
     position: "absolute",
     top: 52,
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
   input: { flex: 1, fontSize: 14, color: "#000" },
   list: { maxHeight: 200 },
   option: { height: 30, justifyContent: "center", paddingHorizontal: 4 },
-  optionText: { fontSize: 14 },
+  optionText: { fontSize: 14, color: "black" },
   noResults: { textAlign: "center", padding: 10, color: "#43434396" },
 });
 

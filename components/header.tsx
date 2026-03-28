@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     backgroundColor: app_bg_color,
   },
   audioSwitcher: { flexDirection: "row", alignItems: "center", gap: 4 },
-  audioSwitcherText: { fontSize: 16, fontWeight: 700 },
+  audioSwitcherText: { fontSize: 16, fontWeight: 700, color: "black" },
 
   burgerMenu: { gap: 6 },
   burgerMenuIcon: { width: 32, height: 4, backgroundColor: "black" },

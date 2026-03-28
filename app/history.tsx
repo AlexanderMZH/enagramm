@@ -52,7 +52,7 @@ const HistoryPage = () => {
 
           <View style={[styles.userEmailContainer]}>
             <View style={[styles.userEmailIcon]}>
-              <Text>A</Text>
+              <Text style={{ color: "black" }}>A</Text>
             </View>
 
             <View>
@@ -133,6 +133,7 @@ const styles = StyleSheet.create({
   userEmail: {
     fontWeight: "bold",
     fontSize: 10,
+    color: "black",
   },
 
   userPlanContainer: {
@@ -148,6 +149,7 @@ const styles = StyleSheet.create({
 
   userPlan: {
     fontSize: 8,
+    color: "black",
   },
   userPlanIcon: {
     position: "absolute",
@@ -168,6 +170,7 @@ const styles = StyleSheet.create({
 
   cardDate: {
     marginBottom: 8,
+    color: "black",
   },
 
   singleCard: {
@@ -184,6 +187,7 @@ const styles = StyleSheet.create({
   cardText: {
     width: "80%",
     fontSize: 10,
+    color: "black",
   },
 });
 
